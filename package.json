@@ -1,0 +1,28 @@
+{
+  "name": "crdt-ws",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node --trace-warnings --abort-on-uncaught-exception --unhandled-rejections=strict dist/index.js",
+    "test": "jest --forceExit --detectOpenHandles --coverage --verbose"
+  },
+  "devDependencies": {
+    "@types/node": "^14.17.33",
+    "@types/ws": "^8.2.2",
+    "@well-known-components/test-helpers": "^1.2.1",
+    "typescript": "^4.5.5"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false
+  },
+  "dependencies": {
+    "@well-known-components/env-config-provider": "^1.1.1",
+    "@well-known-components/http-server": "^1.1.2-20211111131036.commit-609d4ea",
+    "@well-known-components/interfaces": "^1.1.1",
+    "@well-known-components/logger": "^1.1.0",
+    "@well-known-components/metrics": "^1.1.2",
+    "node-fetch": "^2.6.2",
+    "ws": "^8.4.2"
+  }
+}
