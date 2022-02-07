@@ -42,7 +42,7 @@ export default function crdtWebsocket(ws: WebSocket, sceneId: string) {
     return sockets.delete(ws)
   }
 
-  function parseMessage(rawData: RawData) {
+  function processMessage(rawData: RawData) {
     const msg = JSON.parse(rawData.toString())
     const message = {
       ...msg,
@@ -58,8 +58,6 @@ export default function crdtWebsocket(ws: WebSocket, sceneId: string) {
   }
 
   function broadcast(message: RawData) {
-    if (!sockets.size) return
-
     for (const socket of sockets) {
       if (socket !== ws) {
         socket.send(message.toString())
@@ -71,7 +69,7 @@ export default function crdtWebsocket(ws: WebSocket, sceneId: string) {
   onConnect()
 
   return {
-    parseMessage,
+    processMessage,
     disconnect,
   }
 }

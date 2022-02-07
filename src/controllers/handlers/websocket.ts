@@ -23,7 +23,7 @@ export async function websocketHandler(context: IHttpServerComponent.DefaultCont
 
     ws.on('message', (data) => {
       logger.info(data.toString())
-      crdt.parseMessage(data)
+      crdt.processMessage(data)
     })
 
     ws.on('close', () => {
