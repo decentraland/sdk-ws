@@ -4,10 +4,8 @@ import { createLogComponent } from "@well-known-components/logger"
 import { createFetchComponent } from "./ports/fetch"
 import { createMetricsComponent } from "@well-known-components/metrics"
 import { AppComponents, GlobalContext } from "./types"
-import { createWsComponent } from "./logic/ports/websocket"
+import { createWsComponent } from "./ports/websocket"
 import { metricDeclarations } from "./metrics"
-
-function createWsServer() {}
 
 // Initialize all the components of the app
 export async function initComponents(): Promise<AppComponents> {
@@ -15,7 +13,7 @@ export async function initComponents(): Promise<AppComponents> {
 
   const logs = createLogComponent()
   const ws = await createWsComponent({ logs })
-  const server = await createServerComponent<GlobalContext>({ config, logs, ws: ws.ws }, {})
+  const server = await createServerComponent<GlobalContext>({ config, logs, ws: ws.wsServer }, {})
   const statusChecks = await createStatusCheckComponent({ server, config })
   const fetch = await createFetchComponent()
   const metrics = await createMetricsComponent(metricDeclarations, { server, config })

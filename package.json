@@ -1,15 +1,19 @@
 {
   "name": "crdt-ws",
   "version": "1.0.0",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node --trace-warnings --abort-on-uncaught-exception --unhandled-rejections=strict dist/index.js",
-    "test": "jest --forceExit --detectOpenHandles --coverage --verbose"
+    "test": "jest --forceExit --detectOpenHandles --coverage --verbose",
+    "watch": "nodemon src/index.ts"
   },
   "devDependencies": {
     "@types/node": "^14.17.33",
     "@types/ws": "^8.2.2",
     "@well-known-components/test-helpers": "^1.2.1",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
     "typescript": "^4.5.5"
   },
   "prettier": {
@@ -17,8 +21,9 @@
     "semi": false
   },
   "dependencies": {
+    "@dcl/crdt": "^1.0.0-20220107181526.commit-d375c02",
     "@well-known-components/env-config-provider": "^1.1.1",
-    "@well-known-components/http-server": "^1.1.2-20211111131036.commit-609d4ea",
+    "@well-known-components/http-server": "^1.1.2-20220207145800.commit-236cfbb",
     "@well-known-components/interfaces": "^1.1.1",
     "@well-known-components/logger": "^1.1.0",
     "@well-known-components/metrics": "^1.1.2",

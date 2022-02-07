@@ -1,4 +1,4 @@
-import type { WebSocketServer } from "ws"
+import type { WebSocketServer, WebSocket } from "ws"
 import type { IFetchComponent } from "@well-known-components/http-server"
 import type {
   IConfigComponent,
@@ -10,7 +10,7 @@ import type {
 import { metricDeclarations } from "./metrics"
 
 export type WebSocketComponent = IBaseComponent & {
-  ws: WebSocketServer
+  wsServer: WebSocketServer
 }
 
 export type GlobalContext = {
