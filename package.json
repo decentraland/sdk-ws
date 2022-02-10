@@ -1,5 +1,5 @@
 {
-  "name": "crdt-ws",
+  "name": "sdk-ws",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
